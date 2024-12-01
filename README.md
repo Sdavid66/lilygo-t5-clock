@@ -27,7 +27,7 @@ Create a file at `src/config.h` and populate it with the following:
 #define WIFI_SSID "Your WiFi SSID goes here"
 #define WIFI_PASS "Your WiFi password goes here"
 #define OWM_KEY "Your OpenWeatherMap API key goes here"
-#define OWM_LOCATION "Define your location"
+#define OWM_LOCATION "Define your location exemple: Sion,CH"
 #define OWM_LAT 43.69264
 #define OWM_LON -79.38091
 #define TZ_INFO "EST5EDT,M3.2.0,M11.1.0" // https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
