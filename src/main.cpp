@@ -186,15 +186,19 @@ void drawClock() {
 }
 
 void getClock() {
-	struct tm now;
-	getLocalTime(&now);
-	strftime(_tod, 10, "%H:%M", &now);
-	if (dayOfWeek != now.tm_wday) {
-		_drawDate = true;
-		dayOfWeek = now.tm_wday;
-		strftime(_dow, 20, "%A", &now);
-		strftime(_mdy, 50, "%b %d %Y", &now);
-	}
+    struct tm now;
+    getLocalTime(&now);
+    strftime(_tod, 10, "%H:%M", &now);
+    if (dayOfWeek != now.tm_wday) {
+        _drawDate = true;
+        dayOfWeek = now.tm_wday;
+        strcpy(_dow, DAYS[now.tm_wday]);
+        sprintf(_mdy, DATE_FORMAT, 
+            now.tm_mday,    // jour
+            now.tm_mon + 1, // mois (on ajoute 1 car tm_mon va de 0 à 11)
+            now.tm_year + 1900  // année
+        );
+    }
 }
 
 void setClock() {
