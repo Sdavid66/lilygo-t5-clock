@@ -1,6 +1,7 @@
 // Language configuration
 #define LANG_FR 0
 #define LANG_EN 1
+//definir la langue d'affichage pour les jours de la semaine
 #define LANGUAGE LANG_FR  // Change to LANG_EN for English
 
 // Jours de la semaine seulement, on n'a plus besoin des mois
