@@ -1,4 +1,4 @@
-# lilygo-t5-clock
+# lilygo-t5-clock fork
 
 Time, date, and weather on a LILYGO T5-4.7 ESP32 e-paper display.
 
@@ -21,21 +21,11 @@ The wires on the battery that I'm using came unterminated. I just soldered the w
 
 ## Configuration
 
-Create a file at `src/config.h` and populate it with the following:
+La configuration se fait au niveau du fichier de config. Vous avez aussi la possibilite de chosir la langue d'affichage a votre guise entre le francais et l'anglais. A vous de modifier le fichier pour d'autres langues. Attention aux accdents qui ne sont pas pris en compte.
 
-```c
-#define WIFI_SSID "Your WiFi SSID goes here"
-#define WIFI_PASS "Your WiFi password goes here"
-#define OWM_KEY "Your OpenWeatherMap API key goes here"
-#define OWM_LOCATION "Define your location exemple: Sion,CH"
-#define OWM_LAT 43.69264
-#define OWM_LON -79.38091
-#define TZ_INFO "EST5EDT,M3.2.0,M11.1.0" // https://github.com/nayarsystems/posix_tz_db/blob/master/zones.csv
-#define VOLTAGE_INTERVAL 1800 // Seconds between battery voltage updates
-#define NTP_INTERVAL	 3600 // Seconds between NTP updates
-#define WEATHER_INTERVAL 1800 // Seconds between weather updates
-#define REDRAW_INTERVAL  3600 // Seconds between screen redraws
-```
+src/config.h
+
+
 
 Customize as needed.
 
