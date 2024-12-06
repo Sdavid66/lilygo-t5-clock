@@ -332,44 +332,42 @@ void drawWeather() {
 }
 
 void getWeather() {
+    enableWifi();
+    bool updated = weather.updateStatus(&w);
+    disableWifi();
 
-	enableWifi();
-	bool updated = weather.updateStatus(&w);
-	disableWifi();
+    time(&lastWeatherUpdate);
+    struct tm now;
+    getLocalTime(&now);
 
-	time(&lastWeatherUpdate);
-	struct tm now;
-	getLocalTime(&now);
+    if (updated) {
+        _drawWeather = true;
 
-	if (updated) {
+        sprintf(_wIcon, "%s", weather.getIcon(w.icon));
+        if (wIcon != _wIcon) _drawWicon = true;
 
-		_drawWeather = true;
+        sprintf(_wTemp, "%.1fc", w.current_Temp);
+        if (strcmp(wTemp, _wTemp) != 0) _drawTemp = true;
 
-		sprintf(_wIcon, "%s", weather.getIcon(w.icon));
-		if (wIcon != _wIcon) _drawWicon = true;
+        sprintf(_wFeels, "%s %.1fc", FEELS_LIKE_LABEL, w.feels_like);
+        if (strcmp(wFeels, _wFeels) != 0) _drawFtemp = true;
 
-		sprintf(_wTemp, "%.1fc", w.current_Temp);
-		if (strcmp(wTemp, _wTemp) != 0) _drawTemp = true;
+        int ws = w.wind_speed * 3.6;
+        String wd = weather.getWindDirection(w.wind_direction);
+        sprintf(_wWind, "%s %d %s %s", WIND_LABEL, ws, KMH_LABEL, wd.c_str());
+        if (strcmp(wWind, _wWind) != 0) _drawWind = true;
 
-		sprintf(_wFeels, "Feels like %.1fc", w.feels_like);
-		if (strcmp(wFeels, _wFeels) != 0) _drawFtemp = true;
+        sprintf(_wHumidity, "%s %d%%", HUMIDITY_LABEL, w.humidity);
+        if (strcmp(wHumidity, _wHumidity) != 0) _drawHumidity = true;
 
-		int ws = w.wind_speed * 3.6;
-		String wd = weather.getWindDirection(w.wind_direction);
-		sprintf(_wWind, "Wind: %d km/h %s", ws, wd);
-		if (strcmp(wWind, _wWind) != 0) _drawWind = true;
-
-		sprintf(_wHumidity, "Humidity: %d%%", w.humidity);
-		if (strcmp(wHumidity, _wHumidity) != 0) _drawHumidity = true;
-
-		strftime(_wUpdated, 20, "Updated: %H:%M", &now);
-
-	} else {
-
-		strftime(_wUpdated, 20, "! Updated: %H:%M", &now);
-
-	}
-	
+        char timeStr[10];
+        strftime(timeStr, 10, "%H:%M", &now);
+        sprintf(_wUpdated, "%s %s", UPDATED_LABEL, timeStr);
+    } else {
+        char timeStr[10];
+        strftime(timeStr, 10, "%H:%M", &now);
+        sprintf(_wUpdated, "! %s %s", UPDATED_LABEL, timeStr);
+    }
 }
 
 void setWeather() {
