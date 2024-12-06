@@ -5,6 +5,7 @@
 #define LANGUAGE LANG_FR  // Change to LANG_EN for English
 
 // Jours de la semaine seulement, on n'a plus besoin des mois
+// Jours de la semaine seulement, on n'a plus besoin des mois
 #if LANGUAGE == LANG_FR
     const char* DAYS[] = {
         "Dimanche",
@@ -15,6 +16,11 @@
         "Vendredi",
         "Samedi"
     };
+    const char* WIND_LABEL = "Vent:";
+    const char* HUMIDITY_LABEL = "Humidite:";
+    const char* UPDATED_LABEL = "Mise a jour:";
+    const char* FEELS_LIKE_LABEL = "Ressenti";
+    const char* KMH_LABEL = "km/h";
 #else
     const char* DAYS[] = {
         "Sunday",
@@ -25,6 +31,11 @@
         "Friday",
         "Saturday"
     };
+    const char* WIND_LABEL = "Wind:";
+    const char* HUMIDITY_LABEL = "Humidity:";
+    const char* UPDATED_LABEL = "Updated:";
+    const char* FEELS_LIKE_LABEL = "Feels like";
+    const char* KMH_LABEL = "km/h";
 #endif
 
 #define DATE_FORMAT "%02d.%02d.%4d"  // format: 01.12.2024
