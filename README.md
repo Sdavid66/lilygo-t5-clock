@@ -21,13 +21,14 @@ The wires on the battery that I'm using came unterminated. I just soldered the w
 
 ## Configuration
 
-La configuration se fait au niveau du fichier de config. Vous avez aussi la possibilite de chosir la langue d'affichage a votre guise entre le francais et l'anglais. A vous de modifier le fichier pour d'autres langues. Attention aux accdents qui ne sont pas pris en compte.
+La configuration se fait au niveau du fichier de config. Vous avez aussi la possibilite de chosir la langue d'affichage a votre guise entre le francais et l'anglais. A vous de modifier le fichier pour d'autres langues. Attention aux accents qui ne sont pas pris en compte.
 
 src/config.h
 
+## WeatherPro APi
 
+Une mies à jour de l'api a ete faite pour que l'api fonctionne à nouveau correctement.
 
-Customize as needed.
 
 ### Configuration Notes
 
