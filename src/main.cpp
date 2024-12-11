@@ -26,7 +26,7 @@
 #include "batt_25.h"
 #include "batt_0.h"
 
-#define BATT_PIN 36
+// #define BATT_PIN 36
 
 #define EPD_WIDTH 960
 #define EPD_HEIGHT 540
